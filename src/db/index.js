@@ -1,11 +1,11 @@
 const pg = require("pg");
-
+console.log("here", process.env.DATABASE_URL);
 const client = new pg.Client({
-  connectionString: process.env.DATABASE_URL || ""
+	connectionString: process.env.DATABASE_URL || ""
 });
 
 client
-  .connect()
-  .catch(e => console.log(`Error connecting to Postgres server:\n${e}`));
+	.connect()
+	.catch(e => console.log(`Error connecting to Postgres server:\n${e}`));
 
 module.exports = client;
